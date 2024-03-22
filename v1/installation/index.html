@@ -262,19 +262,19 @@
 
 <p>You could easily run this project on local environment by using <strong>docker-compose</strong>. Below is the step to deploy the application:</p>
 <p>If you on Linux, you could deploy the application by running the <code>init</code> bash scripts on deployment folder
-<div class="highlight"><pre><span></span><code>$ ./deployments/init.sh
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ ./deployments/init.sh
+</span></code></pre></div></p>
 <p>Else, you could manually run all service needed for deployment </p>
 <ol>
 <li>
 <p>Deploy Certificate Manager Service
-<div class="highlight"><pre><span></span><code>$ cd cert-manager &amp;&amp; docker-compose up
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ cd cert-manager &amp;&amp; docker-compose up
+</span></code></pre></div></p>
 </li>
 <li>
 <p>After cert-manager is up, run the API service
-<div class="highlight"><pre><span></span><code>$ cd ../deployments &amp;&amp; docker-compose-up
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ cd ../deployments &amp;&amp; docker-compose-up
+</span></code></pre></div></p>
 </li>
 <li>
 <p>After all service is up and running, you could view the API documentation on <code>localhost:9000</code></p>
