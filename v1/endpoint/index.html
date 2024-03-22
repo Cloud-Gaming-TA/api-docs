@@ -1,0 +1,2584 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
+    
+    
+      
+        <title>Endpoint - Cloud Gaming API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.10ba22f1.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#account" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cloud Gaming API Documentation" class="md-header__button md-logo" aria-label="Cloud Gaming API Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cloud Gaming API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Endpoint
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cloud Gaming API Documentation" class="md-nav__button md-logo" aria-label="Cloud Gaming API Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Cloud Gaming API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#account" class="md-nav__link">
+    <span class="md-ellipsis">
+      Account
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Account">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-register" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Register
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Register">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-verify-otp" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Verify OTP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Verify OTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-resend-otp" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Resend OTP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Resend OTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Login
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Login">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-patch-user-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Patch User Info
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Patch User Info">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-link-steam-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Link Steam Account
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Link Steam Account">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-get-steam-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Get Steam ID
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Get Steam ID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoint_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auth
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Auth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#token-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-issue-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Issue Token
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Issue Token">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-public-refresh-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. (PUBLIC) Refresh Token
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. (PUBLIC) Refresh Token">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-verify-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Verify Credentials
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Verify Credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-revoked-access-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Revoked Access Token
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Revoked Access Token">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#games" class="md-nav__link">
+    <span class="md-ellipsis">
+      Games
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Games">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sync-games-to-user-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Sync Games to User Account
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Sync Games to User Account">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoint_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-get-user-games-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Get User Games Collections
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Get User Games Collections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoint_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pagination
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-play-games" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Play Games
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Play Games">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoint_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-new-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Create New Session
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Create New Session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoint_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-get-session-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Get Session Status
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Get Session Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endpoint_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-start-connection-establishment" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Start Connection Establishment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Start Connection Establishment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoint_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Pair
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Pair">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoint_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-terminate-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Terminate Session
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Terminate Session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoint_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Endpoint</h1>
+
+<h2 id="account">Account</h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td><code>string</code></td>
+<td>A 64 length string that identifies a user</td>
+</tr>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>User display name</td>
+</tr>
+<tr>
+<td>email</td>
+<td><code>string</code></td>
+<td>A valid email for authentication</td>
+</tr>
+<tr>
+<td>password</td>
+<td><code>string</code></td>
+<td>A minimum of 8 string password with combination of character and symbol</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Header</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>The content type of the request. Only accepted <code>application/json</code></td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Authorization header. Use <code>Bearer Token</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-register">1. Register</h3>
+<p>To register a user to the server, send a POST request to the endpoint below:</p>
+<div class="highlight"><pre><span></span><code>POST /v1/account/register
+</code></pre></div>
+<h4 id="request">Request</h4>
+<p><strong>Header</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong> 
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;required&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;required&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;required&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;required&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h4 id="response">Response</h4>
+<p><strong>Header</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error_type</td>
+<td>a string for telling the error type</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Succesful Response (200 OK)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your account is successfully created. OTP has been sent to your email.&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Error Response</strong> </br> </br>
+1. <strong>400 Bad Request</strong> </br>
+    There are various 400 error type, below is the details regarding all possible bad request error type:</p>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>missing_parameter</td>
+<td>There are a missing parameters in the request provided</td>
+</tr>
+<tr>
+<td>header_value_mismatch</td>
+<td>using non-supported content-type header</td>
+</tr>
+<tr>
+<td>username_exists</td>
+<td>username already taken</td>
+</tr>
+<tr>
+<td>username_invalid</td>
+<td>username content is invalid</td>
+</tr>
+<tr>
+<td>email_exists</td>
+<td>email already registered</td>
+</tr>
+<tr>
+<td>password_weak</td>
+<td>invalid password</td>
+</tr>
+<tr>
+<td>invalid_email</td>
+<td>provided an invalid email</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;error_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_error_type_here&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;details_regarding_the_error&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="2-verify-otp">2. Verify OTP</h3>
+<p>After a successful registration, an OTP will be sent to the email on the request. To verify newly registered user, user must verify their account by sending a POST request to the endpoint below:</p>
+<div class="highlight"><pre><span></span><code>POST /v1/account/otp/verify
+</code></pre></div>
+<h4 id="request_1">Request</h4>
+<ul>
+<li><strong>Header</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Body</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_id_here&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;otp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_OTP_here&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<h4 id="response_1">Response</h4>
+<p><strong>Successful Response (200 OK)</strong></p>
+<ul>
+<li><strong>Header</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Body</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your account has been activated successfully&quot;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<p><strong>Error Response</strong> </br> 
+1. <strong>400 Bad Request</strong> </br>
+    This error can be caused by several reasons. The list of all possible error is listed below:</p>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>missing_parameters</td>
+<td>some body parameters is missing</td>
+</tr>
+<tr>
+<td>header_value_mismatch</td>
+<td>Content-Type header isn't acceptable</td>
+</tr>
+<tr>
+<td>invalid_otp</td>
+<td>OTP provided doesn't match with the server</td>
+</tr>
+<tr>
+<td>otp_expired</td>
+<td>OTP provided has already expired, please re send a new otp</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;error_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_error_type_here&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;descriptipn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;details_regarding_your_error here&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li><strong>404 Not Found</strong> </br>
+    This error caused by trying to verify otp from an active email or unregistered email. </li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;error_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email_not_found&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email not exist or email already active&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="3-resend-otp">3. Resend OTP</h3>
+<p>A user are able to re-send confirmation email with a new OTP. Re-send mail can be sent in a interval of <code>60 seconds</code>. To re-send the mail, send a POST request to endpoint below:</p>
+<div class="highlight"><pre><span></span><code>POST /v1/account/otp/send
+</code></pre></div>
+<h4 id="request_2">Request</h4>
+<ul>
+<li><strong>Header</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Body</strong> 
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_email_here&quot;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<h4 id="response_2">Response</h4>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Successful Response (200 OK)</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;successfull&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTP has been re-send to your email.&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Error Response</strong> </br>
+1. <strong>429 Too Many Requests</strong>  </br>
+        This error is caused by sending a re-send request too early. There are only one possible error type that is, <code>otp_resend_interval_not_reached</code>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;error_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;otp_resend_interval_not_reached&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Re send mail has already been sent&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h3 id="4-login">4. Login</h3>
+<p>To log in user to the server and gain access to all service, sent a POST request to endpoint below:</p>
+<div class="highlight"><pre><span></span><code>POST /v1/account/login
+</code></pre></div>
+<h4 id="request_3">Request</h4>
+<ul>
+<li><strong>Header</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><span style="padding: 2px 4px; color: rgb(175, 78, 93); background-color: rgb(30, 15, 17)">application/json</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Body</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_email_here&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_password_here&quot;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<h4 id="response_3">Response</h4>
+<p><strong>Successful Response (200 OK)</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;accesss_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_token_here&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_refresh_token_here&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Error Response</strong> </br>
+1. <strong>400 Bad Request</strong> </br>
+    This error can be caused by several reasons. The list of all possible error is listed below:</p>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>missing_parameters</td>
+<td>some body parameters is missing</td>
+</tr>
+<tr>
+<td>header_value_mismatch</td>
+<td>Content-Type header isn't acceptable</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;error_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_error_type_here&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;details_regarding_your_error here&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li><strong>401 Unauthenticated</strong> </br>
+        There are two error that can caused this status code, that is</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user_marked_inactive</td>
+<td>the user isn't registered successfully and currently marked as inactive</td>
+</tr>
+<tr>
+<td>invalid_credentials</td>
+<td>email or password is invalid</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;error_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_error_type_here&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;descriptipn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;details_regarding_your_error here&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="5-patch-user-info">5. Patch User Info</h3>
+<p>Update user info partially, send a PATCH request to endpoint below:</p>
+<div class="highlight"><pre><span></span><code>PATCH /v1/account/{username}
+</code></pre></div>
+<h4 id="request_4">Request</h4>
+<ul>
+<li><strong>Header</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td><code>Bearer your_token_here</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Body</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_new_name_here&quot;</span><span class="w"> </span><span class="err">(op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="err">)</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<h4 id="response_4">Response</h4>
+<ul>
+<li><strong>Header</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>Successful Response (200 OK)</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Success updating user info&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Error Response</strong> </br></p>
+</li>
+<li><strong>400 Bad Request</strong> </br>
+This error can be caused by several reasons. The list of all possible error is listed below:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>header_value_mismatch</td>
+<td>Content-Type header isn't acceptable</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;error_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_error_type_here&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;descriptipn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;details_regarding_your_error here&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li><strong>403 Forbidden</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invalid_auth_header</td>
+<td>The header specified a wrong auth method other than Bearer Token</td>
+</tr>
+<tr>
+<td>empty_auth_header</td>
+<td>Auth header is empty</td>
+</tr>
+<tr>
+<td>invalid_token</td>
+<td>Token provided is invalid</td>
+</tr>
+<tr>
+<td>token_expired</td>
+<td>Token has already expired</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;error_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_error_type_here&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;descriptipn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;details_regarding_your_error here&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li><strong>404 Not Found</strong>
+Username not found</li>
+</ol>
+<h3 id="6-link-steam-account">6. Link Steam Account</h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This endpoint only available for <strong>INTERNAL USE</strong>. The service will check the client certificate before proceeding the request. If the certificate  <strong>NOT ISSUED</strong> by our <strong>CERTIFICATE MANAGER</strong>, the request will be <strong>DECLINED</strong>.  </p>
+</div>
+<p>This endpoint is for storing user steamid into the database. </p>
+<h4 id="endpoint">Endpoint</h4>
+<div class="highlight"><pre><span></span><code>POST /v1/account/{username}/steam
+</code></pre></div>
+<h4 id="request_5">Request</h4>
+<ul>
+<li><strong>Header</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Body</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;steamid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;steam id&quot;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<h4 id="response_5">Response</h4>
+<p><strong>Successful Response (200 OK)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;account is linked successfully&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Error Response</strong> </br>
+1. <strong>400 Bad Request</strong> </br>
+    This error can be caused by several reasons. The list of all possible error is listed below:</p>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>missing_parameters</td>
+<td>some body parameters is missing</td>
+</tr>
+<tr>
+<td>header_value_mismatch</td>
+<td>Content-Type header isn't acceptable</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;error_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_error_type_here&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;details_regarding_your_error here&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li><strong>404 Not Found</strong> </br>
+    This error is caused by username in the path parameter doesn't exist
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;error_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;username_not_found&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;username not found&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ol>
+<h3 id="7-get-steam-id">7. Get Steam ID</h3>
+<p>This endpoint is for get the steam id of an account</p>
+<h4 id="endpoint_1">Endpoint</h4>
+<div class="highlight"><pre><span></span><code>GET /v1/account/{username}/steamid
+</code></pre></div>
+<h4 id="response_6">Response</h4>
+<p><strong>Successful Response (200 OK)</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;steamid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your steam id&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Error Response</strong> </br>
+1. <strong>400 Bad Request</strong> </br>
+There are only one error response on this endpoint, and that is <code>steam_not_linked</code>. It was caused by trying to get steam id when the account hasn't been linked to a valid steam account. </p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fail&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;error_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;steam_not_linked&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;account hasn&#39;t been linked to steam yet&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="auth">Auth</h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>valid account username for token claims</td>
+</tr>
+<tr>
+<td>email</td>
+<td>valid account email for token claims</td>
+</tr>
+<tr>
+<td>roles</td>
+<td>the roles of the user that issued the token</td>
+</tr>
+</tbody>
+</table>
+<h3 id="token-type">Token Type</h3>
+<ol>
+<li><strong>Auth Token</strong> </br>
+    Give access to verified user to endpoint that can be accessed with their credentials. This token is set to expired 15 minutes after the token has been issued.
+</br></li>
+<li><strong>Refresh Token</strong> </br>
+     Token for refresh auth token. This token will expired 1 day after the token has been issued. </li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>When auth token is refreshed, the refresh token also refreshed. So refresh token will expired after <strong>1 day of inactivity</strong>. </p>
+</div>
+<h3 id="1-issue-token">1. Issue Token</h3>
+<p>To issue an access token for user, send a POST request to endpoint. </p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This endpoint only available for <strong>INTERNAL USE</strong>. The service will check the client certificate before proceeding the request. If the certificate  <strong>NOT ISSUED</strong> by our <strong>CERTIFICATE MANAGER</strong>, the request will be <strong>DECLINED</strong>.  v</p>
+</div>
+<div class="highlight"><pre><span></span><code>POST /v1/auth/token
+</code></pre></div>
+<h4 id="request_6">Request</h4>
+<ul>
+<li>Header</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+<tr>
+<td>X-Client-Cert</td>
+<td><code>base64 encoded certificate</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Appending certificate onto the header is optional, the server accept client TLS Certificate if given. </p>
+</div>
+<ul>
+<li>Body
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;issuer username&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;issuer email&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;roles&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user role (user/admin)&quot;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<h4 id="response_7">Response</h4>
+<ul>
+<li>Header</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>Successful Response (200 OK)</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;token&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;refresh&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Failed Response</strong></p>
+</li>
+<li><strong>400 Bad Request</strong></br>
+Below is several error that caused this error code:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>missing_parameter</td>
+<td>There are a missing parameters in the request provided</td>
+</tr>
+<tr>
+<td>header_value_mismatch</td>
+<td>using non-supported content-type header</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong>403 Unauthorized</strong> </br>
+Only error for this code is <code>access_denied</code>. This happens when the client doesn't provide a valid certificate. </li>
+</ol>
+<h3 id="2-public-refresh-token">2. (PUBLIC) Refresh Token</h3>
+<p>To refresh auth token, send a POST request to this endpoint</p>
+<div class="highlight"><pre><span></span><code>POST /v1/auth/token/refresh
+</code></pre></div>
+<h4 id="request_7">Request</h4>
+<ul>
+<li>Header</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>* Body</td>
+<td></td>
+</tr>
+<tr>
+<td><div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_expired_token_here&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_valid_refresh_token_here&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="response_8">Response</h4>
+<ul>
+<li>
+<p><strong>Successful Response (200 OK)</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_new_access_token&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_new_refresh_token&quot;</span><span class="err">.</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Failed Response</strong></p>
+</li>
+<li><strong>403 Unauthorized</strong> </br>
+This status is returned because of the issued token doesn't meet required conditions. Here are the error that can arise from this error code:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>refresh_denied</td>
+<td>cannot refresh access token because the previous one still active</td>
+</tr>
+<tr>
+<td>token_invalid</td>
+<td>access token invalid or refresh token invalid or your access token is revoked</td>
+</tr>
+<tr>
+<td>token_expired</td>
+<td>refresh token is expired</td>
+</tr>
+<tr>
+<td>claim_mismatch</td>
+<td>your access token and refresh token has different credentials</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Revoked access token <strong>cannot be refreshed</strong>. </p>
+</div>
+<ol>
+<li><strong>400 Bad Request</strong> </br>
+Below is several error that caused this error code:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>missing_parameter</td>
+<td>There are a missing parameters in the request provided</td>
+</tr>
+<tr>
+<td>header_value_mismatch</td>
+<td>using non-supported content-type header</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-verify-credentials">3. Verify Credentials</h3>
+<p>This endpoint is for verifying your credentials. Send a POST request to this endpoint. </p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This endpoint only available for <strong>INTERNAL USE</strong>. The service will check the client certificate before proceeding the request. If the certificate  <strong>NOT ISSUED</strong> by our <strong>CERTIFICATE MANAGER</strong>, the request will be <strong>DECLINED</strong>.  </p>
+</div>
+<div class="highlight"><pre><span></span><code>POST /v1/auth/verify 
+</code></pre></div>
+<h4 id="request_8">Request</h4>
+<ul>
+<li>Header</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+<tr>
+<td>X-Client-Cert</td>
+<td><code>base64 encoded certificate</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Appending certificate onto the header is optional, the server accept client TLS Certificate if given. </p>
+</div>
+<h4 id="request_9">Request</h4>
+<ul>
+<li>Body
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_token_here&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the_endpoint_the_user_try_to_access&quot;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<h4 id="response_9">Response</h4>
+<ol>
+<li><strong>403 Unauthorized</strong> </br>
+This status is returned because of the token doesn't meet required conditions. Here are the error that can arise from this error code:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token_invalid</td>
+<td>either the access token or refresh token is invalid</td>
+</tr>
+<tr>
+<td>token_expired</td>
+<td>refresh token is expired</td>
+</tr>
+<tr>
+<td>access_denied</td>
+<td>you don't have access to the endpoint</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong>400 Bad Request</strong> </br>
+Below is several error that caused this error code:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>missing_parameter</td>
+<td>There are a missing parameters in the request provided</td>
+</tr>
+<tr>
+<td>header_value_mismatch</td>
+<td>using non-supported content-type header</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-revoked-access-token">4. Revoked Access Token</h3>
+<p>To revoke an active token, send a POST request to this endpoint</p>
+<div class="highlight"><pre><span></span><code>POST /v1/auth/token/revoke
+</code></pre></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This endpoint only available for <strong>INTERNAL USE</strong>. The service will check the client certificate before proceeding the request. If the certificate  <strong>NOT ISSUED</strong> by our <strong>CERTIFICATE MANAGER</strong>, the request will be <strong>DECLINED</strong>.  </p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Appending certificate onto the header is optional, the server accept client TLS Certificate if given. </p>
+</div>
+<h4 id="request_10">Request</h4>
+<ul>
+<li>Header</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+<tr>
+<td>X-Client-Cert</td>
+<td><code>base64 encoded certificate</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Body</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;access_token_that_need_to_be_revoked&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="response_10">Response</h4>
+<ol>
+<li><strong>403 Unauthorized</strong> </br>
+This status is returned because of the token doesn't meet required conditions. Here are the error that can arise from this error code:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_denied</td>
+<td>you don't have access to the endpoint</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="games">Games</h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>game_id</td>
+<td><code>string</code></td>
+<td>Game id assigned by steam</td>
+</tr>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>Game display name</td>
+</tr>
+<tr>
+<td>display_picture</td>
+<td><code>string</code></td>
+<td>the url where the game display picture is stored</td>
+</tr>
+<tr>
+<td>icon_url</td>
+<td><code>string</code></td>
+<td>the url where the game icon is stored</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Storage Location Schema</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nas&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;optional&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;some/path/to/the/location&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Header</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>The content type of the request. Only accepted <code>application/json</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-sync-games-to-user-account">1. Sync Games to User Account</h3>
+<p>This is endpoint to sync user owned games in steam and add supported games to user games collections. </p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This endpoint only available for <strong>INTERNAL USE</strong>. The service will check the client certificate before proceeding the request. If the certificate  <strong>NOT ISSUED</strong> by our <strong>CERTIFICATE MANAGER</strong>, the request will be <strong>DECLINED</strong>.  </p>
+</div>
+<h4 id="endpoint_2">Endpoint</h4>
+<div class="highlight"><pre><span></span><code>POST /v1/games/{username}/sync
+</code></pre></div>
+<h4 id="request_11">Request</h4>
+<ul>
+<li>Header</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+<tr>
+<td>X-Client-Cert</td>
+<td><code>base64 encoded certificate</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Body</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;games&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example game&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;icon_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;http://media.steampowered.com/steamcommunity/public/images/apps/{appid}/{hash}.jpg&quot;</span>
+<span class="w">            </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12312312321&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span><span class="w"> </span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="err">...</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="2-get-user-games-collections">2. Get User Games Collections</h3>
+<p>This endpoint is for getting user collections of games. </p>
+<h4 id="endpoint_3">Endpoint</h4>
+<div class="highlight"><pre><span></span><code>GET /v1/games/{username}/collections
+</code></pre></div>
+<h4 id="query-parameters">Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>parameter</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cursor</td>
+<td>this parameter is used to get entry greater than this value. Default is <code>0</code></td>
+</tr>
+<tr>
+<td>limit</td>
+<td>this parameter is used to specify how many values will be returned after the cursor. Default is <code>10</code>. The maximum value is <code>100</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="pagination">Pagination</h4>
+<p>To get the first page, send request to this endpoint without specifying the offset or set offset to <code>0</code>.  Then to access the next page, use the offset value returned at the response. </p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This endpoint only available for <strong>INTERNAL USE</strong>. The service will check the client certificate before proceeding the request. If the certificate  <strong>NOT ISSUED</strong> by our <strong>CERTIFICATE MANAGER</strong>, the request will be <strong>DECLINED</strong>.  </p>
+</div>
+<h4 id="request_12">Request</h4>
+<ul>
+<li><strong>Header</strong>*</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authorization</td>
+<td><code>Bearer Token</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="response_11">Response</h4>
+<ul>
+<li><strong>Header</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Body</strong></li>
+</ul>
+<p><strong>Successful Response (200 OK)</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;games&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;game_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;some_id_here&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;some_name_here&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;game_icon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://path/to/icon.jpg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;display_picture&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://path/to/display.jpg&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+
+<span class="w">    </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12321&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Error Response</strong> </br>
+1. <strong>403 Unauthorized</strong> </br>
+This status is returned because of the token doesn't meet required conditions. Here are the error that can arise from this error code:</p>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token_invalid</td>
+<td>access token is invalid</td>
+</tr>
+<tr>
+<td>token_expired</td>
+<td>refresh token is expired</td>
+</tr>
+<tr>
+<td>access_denied</td>
+<td>you don't have access to this route</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-play-games">3. Play Games</h3>
+<p>This endpoint is for creating a new session (VM) populated with requested games. </p>
+<h4 id="endpoint_4">Endpoint</h4>
+<div class="highlight"><pre><span></span><code>POST /v1/games/play
+</code></pre></div>
+<h4 id="request_13">Request</h4>
+<ul>
+<li><strong>Header</strong>*</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authorization</td>
+<td><code>Bearer Token</code></td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Body</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;game_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;122131&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;username&quot;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<h4 id="response_12">Response</h4>
+<p><strong>Successful Response</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session request has been successfully created&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;session_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_session_id&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Error Response</strong> </br>
+1. <strong>403 Unauthorized</strong> </br>
+This status is returned because of the token doesn't meet required conditions. Here are the error that can arise from this error code:</p>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token_invalid</td>
+<td>access token is invalid</td>
+</tr>
+<tr>
+<td>token_expired</td>
+<td>refresh token is expired</td>
+</tr>
+<tr>
+<td>access_denied</td>
+<td>you don't have access to this route</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Error Response</strong> </br>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fail&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;error_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;steam_not_linked&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;account hasn&#39;t been linked to steam yet&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<ol>
+<li><strong>403 Unauthorized</strong> </br>
+This status is returned because of the token doesn't meet required conditions. Here are the error that can arise from this error code:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token_invalid</td>
+<td>access token is invalid</td>
+</tr>
+<tr>
+<td>token_expired</td>
+<td>refresh token is expired</td>
+</tr>
+<tr>
+<td>access_denied</td>
+<td>you don't have access to this route</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong>400 Bad Request</strong> </br>
+Below is several error that caused this error code:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>missing_parameter</td>
+<td>There are a missing parameters in the request provided</td>
+</tr>
+<tr>
+<td>header_value_mismatch</td>
+<td>using non-supported content-type header</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong>404 Not Found</strong> </br>
+This is caused because of the game id not found on the user collections. </li>
+</ol>
+<h2 id="session">Session</h2>
+<p>This is a service that handle as middleware between client and session manager. </p>
+<h3 id="1-create-new-session">1. Create New Session</h3>
+<p>Create new session request to session manager</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This endpoint only available for <strong>INTERNAL USE</strong>. The service will check the client certificate before proceeding the request. If the certificate  <strong>NOT ISSUED</strong> by our <strong>CERTIFICATE MANAGER</strong>, the request will be <strong>DECLINED</strong>.  </p>
+</div>
+<h4 id="endpoint_5">Endpoint</h4>
+<div class="highlight"><pre><span></span><code>POST /v1/session/create
+</code></pre></div>
+<h4 id="request_14">Request</h4>
+<ul>
+<li><strong>Header</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+<tr>
+<td>X-Client-Cert</td>
+<td><code>base64 encoded certificate</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Body</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;request_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;1231231&quot;</span>
+<span class="w">    </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;username&quot;</span>
+<span class="w">    </span><span class="nt">&quot;game_location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nas&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.101.1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/location/to/ganme&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<h4 id="response_13">Response</h4>
+<p><strong>Successful Response (200 OK)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;request_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uuid-v4-id&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="2-get-session-status">2. Get Session Status</h3>
+<p>View the status of the request</p>
+<h4 id="request-status">Request Status</h4>
+<p><strong>1. Provisioning</strong>
+</br>
+This is the step where the session service successfully create a VM creation request to session manager. </p>
+<p><strong>2.WaitingForConnection</strong>
+</br>
+This is the step where the VM requested has changed it's status to Running and waiting for the client to connect to the VM Virtual LAN. (via ZeroTier)</p>
+<p><strong>3.Pairing</strong>
+</br>
+This is the step where the client and VM successfully reside on the same LAN and waiting for the Sunshine and Moonlight to pair. </p>
+<p><strong>4. Running</strong>
+</br>
+This is the step where configuration has set up successfully and client can used the VM. </p>
+<p><strong>5. Failed</strong>
+</br>
+Some step has failed and the VM creation is cancelled. </p>
+<h4 id="endpoint_6">Endpoint</h4>
+<div class="highlight"><pre><span></span><code>GET /v1/session/{session_id}/status
+</code></pre></div>
+<h4 id="response_14">Response</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Provisioning&quot;</span><span class="w"> </span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="3-start-connection-establishment">3. Start Connection Establishment</h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This endpoint only available for <strong>INTERNAL USE</strong>. The service will check the client certificate before proceeding the request. If the certificate  <strong>NOT ISSUED</strong> by our <strong>CERTIFICATE MANAGER</strong>, the request will be <strong>DECLINED</strong>.  </p>
+</div>
+<h4 id="endpoint_7">Endpoint</h4>
+<div class="highlight"><pre><span></span><code>POST /v1/session/{session_id}/connection/start
+</code></pre></div>
+<h4 id="request_15">Request</h4>
+<ul>
+<li><strong>Body</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;api&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8000&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;network_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;network_id&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<h3 id="3-pair">3. Pair</h3>
+<p>Start pairing sunshine with moonlight. When success, the status of the request will changed to <code>Running</code></p>
+<h4 id="endpoint_8">Endpoint</h4>
+<div class="highlight"><pre><span></span><code>POST /v1/session/{session_id}/pair
+</code></pre></div>
+<h3 id="request_16">Request</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;pin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_pin_here&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="4-terminate-session">4. Terminate Session</h3>
+<p>Terminate current session</p>
+<h4 id="endpoint_9">Endpoint</h4>
+<div class="highlight"><pre><span></span><code>POST /v1/session/{session_id}/terminate
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>
