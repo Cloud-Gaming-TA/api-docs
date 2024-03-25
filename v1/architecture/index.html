@@ -708,7 +708,7 @@
 <p>I don't know if <code>&lt;(printf "\n[SAN]\nsubjectAltName=${SUBJECT_ALT_NAME}")</code> available on Windows. </p>
 </div>
 <p>Please change the placehoder (or add environment variables) with the proper values. </p>
-<ol>
+<ol start="3">
 <li>Send the csr to the cert manager api
 <div class="language-shell highlight"><span class="filename">linux</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>curl<span class="w"> </span>-k<span class="w"> </span>https://<span class="nv">$PKI_HOST</span>/certificate<span class="w"> </span>-o<span class="w"> </span>cert/root-ca.crt
 </span></code></pre></div>
@@ -718,7 +718,7 @@ This will save the signed CA for your service in <strong>cert/root-ca.crt</stron
 <p class="admonition-title">Info</p>
 <p>PKI host is  34.101.181.190:5500</p>
 </div>
-<ol>
+<ol start="4">
 <li>
 <p>Get the Root Certificate
 <div class="language-shell highlight"><span class="filename">linux</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>curl<span class="w"> </span>-k<span class="w"> </span>-v<span class="w"> </span>-F<span class="w"> </span><span class="s2">&quot;csr=@</span><span class="si">${</span><span class="nv">CSR_FILE_PATH</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>https://<span class="nv">$PKI_HOST</span>/certificate/sign<span class="w"> </span>-o<span class="w"> </span><span class="nv">$CERT_FILE_PATH</span>
