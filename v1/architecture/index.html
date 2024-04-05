@@ -440,6 +440,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#session_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -609,6 +618,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#session_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -692,8 +710,21 @@
 <p><strong>This the table schema of games service database.</strong>  </br>
 <img alt="" src="../img/game_db_design.drawio.png" /></p>
 <p>There are three tables; <strong>games</strong>, <strong>storage_location</strong>, and <strong>user_games_collections</strong>. <em>games</em> is a table that store all supported games. This table hold information on the name of the games, the game icon, and the display picture (icon but big), and <strong>storage_id</strong> which point to <em>storage_location</em> table. <em>storage_location</em> table give information on to retrieve game from the storage location. This information include the protocol, ip/host, port (if needed), and location or endpoint.</p>
+<h3 id="session_1">Session</h3>
+<p><img alt="" src="../img/session_db.drawio.png" />
+In the session database, there are three tables, <strong>session</strong>, <strong>session_host</strong>, and <strong>session_metadata</strong>. Session is for storing the request status of the session. The status is of type ENUM called status. See the <a href="https://cloud-gaming-ta.github.io/api-docs/v1/endpoint/#2-get-session-status">session</a> details on endpoint for details regarding the possible value of the status.  The session id using <strong>UUIDv7</strong> stored in bytes format.  </p>
+<p>In session_metadata table, there are data for storing extra information regarding the session. That include the creation time the username that create the session, and the game that are played</p>
+<p>session_host table store information regarding the VM that hosted the session. That include the address of the VM and the zero-tier networkid. </p>
 <h2 id="flowchart">Flowchart</h2>
 <h3 id="steam-link">Steam Link</h3>
+<p>To be able to use the game service, first, the user need to link their steam account. 
+<img alt="" src="../img/steam_link_flow.drawio.png" /></p>
+<p>Upon accessing <em>/v1/middleware/steam/{username}</em>, the page will be redirected to the steam login page
+<img alt="" src="../img/example_steam_login.png" /></p>
+<p>Upon successful login, the user will be redirected to the success_redirect that were assigned in the query parameter. If success_redirect query parameter is not set, then the middleware will use it's default success redirect. </p>
+<p>If any error occured during this process, the middleware will redirect user to fail_redirect that were also set in the query parameter. It will use default fail redirect when the query parameter is not set.  </p>
+<p>Default redirect only show a JSON message to the user, below is the example on default failure redirect</p>
+<p><img alt="" src="../img/default_fail_redirect.png" /></p>
 <h3 id="session-creation">Session Creation</h3>
 <p><img alt="" src="../img/session-creation-flow.drawio.png" /></p>
 <div class="admonition important">
@@ -712,15 +743,15 @@
 </span></code></pre></div>
 2. Create a CSR (Certificate Sign Request) File 
 <div class="language-shell highlight"><span class="filename">linux</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">UNIT</span><span class="o">=</span><span class="s2">&quot;/C=</span><span class="si">${</span><span class="nv">COUNTRY</span><span class="si">}</span><span class="s2">/ST=</span><span class="si">${</span><span class="nv">STATE</span><span class="si">}</span><span class="s2">/L=</span><span class="si">${</span><span class="nv">LOCALITY</span><span class="si">}</span><span class="s2">/O=</span><span class="si">${</span><span class="nv">ORGANIZATION</span><span class="si">}</span><span class="s2">/OU=</span><span class="si">${</span><span class="nv">ORG_UNIT</span><span class="si">}</span><span class="s2">/CN=</span><span class="si">${</span><span class="nv">COMMON_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">SUBJECT_ALT_NAME</span><span class="o">=</span><span class="s2">&quot;DNS.1:</span><span class="si">${</span><span class="nv">SERVICE_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">SUBJECT_ALT_NAME</span><span class="o">=</span><span class="s2">&quot;DNS.1:</span><span class="si">${</span><span class="nv">SERVICE_NAME</span><span class="si">}</span><span class="s2">,IP.1:</span><span class="si">${</span><span class="nv">HOST</span><span class="s2">&quot;</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>$<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span>-key<span class="w"> </span>private_key.pem<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span>-subj<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">UNIT</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span>-reqexts<span class="w"> </span>SAN<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span>-config<span class="w"> </span>&lt;<span class="o">(</span>cat<span class="w"> </span>/etc/ssl/openssl.cnf<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span>&lt;<span class="o">(</span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;\n[SAN]\nsubjectAltName=</span><span class="si">${</span><span class="nv">SUBJECT_ALT_NAME</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">))</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span>-out<span class="w"> </span><span class="nv">$CSR_FILE_PATH</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>$<span class="s2"> openssl req -new \</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="s2">    -key private_key.pem \</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="s2">    -subj &quot;</span><span class="si">${</span><span class="nv">UNIT</span><span class="si">}</span><span class="s2">&quot; \</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="s2">    -reqexts SAN \</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="s2">    -config &lt;(cat /etc/ssl/openssl.cnf \</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="s2">        &lt;(printf &quot;</span><span class="se">\n</span><span class="p">[SAN]</span><span class="se">\n</span><span class="nv">subjectAltName</span><span class="p">=</span><span class="si">${</span><span class="nv">SUBJECT_ALT_NAME</span><span class="si">}</span><span class="s2">&quot;)) \</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="s2">    -out </span><span class="nv">$CSR_FILE_PATH</span>
 </span></code></pre></div></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
