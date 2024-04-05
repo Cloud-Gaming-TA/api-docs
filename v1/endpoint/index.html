@@ -1027,6 +1027,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#request_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#response_15" class="md-nav__link">
     <span class="md-ellipsis">
       Response
@@ -1060,9 +1069,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#request_16" class="md-nav__link">
+  <a href="#request_17" class="md-nav__link">
     <span class="md-ellipsis">
       Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
     </span>
   </a>
   
@@ -1098,7 +1116,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#request_17" class="md-nav__link">
+  <a href="#request_18" class="md-nav__link">
     <span class="md-ellipsis">
       Request
     </span>
@@ -1924,6 +1942,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#request_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#response_15" class="md-nav__link">
     <span class="md-ellipsis">
       Response
@@ -1957,9 +1984,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#request_16" class="md-nav__link">
+  <a href="#request_17" class="md-nav__link">
     <span class="md-ellipsis">
       Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
     </span>
   </a>
   
@@ -1995,7 +2031,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#request_17" class="md-nav__link">
+  <a href="#request_18" class="md-nav__link">
     <span class="md-ellipsis">
       Request
     </span>
@@ -3604,11 +3640,63 @@ Some step has failed and the VM creation is cancelled. </p>
 <h4 id="endpoint_8">Endpoint</h4>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>GET /v1/session/{session_id}/status
 </span></code></pre></div>
+<h4 id="request_16">Request</h4>
+<ul>
+<li><strong>Header</strong>*</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authorization</td>
+<td><code>Bearer Token</code></td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+</tr>
+</tbody>
+</table>
 <h4 id="response_15">Response</h4>
+<p><strong>Successful Response (200 OK)</strong>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="p">{</span>
 </span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a><span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Provisioning&quot;</span><span class="w"> </span>
 </span><span id="__span-60-3"><a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a><span class="p">}</span>
 </span></code></pre></div>
+<strong>Error Response</strong> </br>
+1. <strong>403 Unauthorized</strong> </br>
+This status is returned because of the token doesn't meet required conditions or you are trying to access route without the correct permission. Here are the error that can arise from this error code:</p>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token_invalid</td>
+<td>access token is invalid</td>
+</tr>
+<tr>
+<td>token_expired</td>
+<td>refresh token is expired</td>
+</tr>
+<tr>
+<td>access_denied</td>
+<td>you don't have access to this route</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li><strong>404 Not Found</strong>
+This status returned when you are trying to get status of session_id that isn't exist. </li>
+</ol>
 <h3 id="3-start-connection-establishment">3. Start Connection Establishment</h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -3617,7 +3705,7 @@ Some step has failed and the VM creation is cancelled. </p>
 <h4 id="endpoint_9">Endpoint</h4>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>POST /v1/session/{session_id}/connection/start
 </span></code></pre></div>
-<h4 id="request_16">Request</h4>
+<h4 id="request_17">Request</h4>
 <table>
 <thead>
 <tr>
@@ -3651,20 +3739,79 @@ Some step has failed and the VM creation is cancelled. </p>
 </span><span id="__span-62-4"><a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a><span class="p">}</span>
 </span></code></pre></div></li>
 </ul>
+<h4 id="response_16">Response</h4>
+<p><strong>Successful Response (200 OK)</strong>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="p">{</span>
+</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a><span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+</span><span id="__span-63-3"><a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a><span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;instance has been successfully attached to the session&quot;</span>
+</span><span id="__span-63-4"><a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Error Response</strong>
+1. <strong>400 Bad Request</strong> </br>
+Below is several error that caused this error code:</p>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>missing_parameter</td>
+<td>There are a missing parameters in the request provided</td>
+</tr>
+<tr>
+<td>header_value_mismatch</td>
+<td>using non-supported content-type header</td>
+</tr>
+</tbody>
+</table>
 <h3 id="3-pair">3. Pair</h3>
 <p>Start pairing sunshine with moonlight. When success, the status of the request will changed to <code>Running</code>. This endpoint need to be called from the client. </p>
 <h4 id="endpoint_10">Endpoint</h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>POST /v1/session/{session_id}/pair
+<div class="language-text highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>POST /v1/session/{session_id}/pair
 </span></code></pre></div>
-<h3 id="request_17">Request</h3>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="p">{</span>
-</span><span id="__span-64-2"><a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a><span class="w">    </span><span class="nt">&quot;pin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_pin_here&quot;</span>
-</span><span id="__span-64-3"><a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a><span class="p">}</span>
+<h3 id="request_18">Request</h3>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="p">{</span>
+</span><span id="__span-65-2"><a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a><span class="w">    </span><span class="nt">&quot;pin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_pin_here&quot;</span>
+</span><span id="__span-65-3"><a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a><span class="p">}</span>
 </span></code></pre></div>
+<p><strong>Successful Reponse (200 OK)</strong>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="p">{</span>
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="err">.</span>
+</span><span id="__span-66-3"><a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a><span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;client has been paired successfully to the session instance&quot;</span>
+</span><span id="__span-66-4"><a id="__codelineno-66-4" name="__codelineno-66-4" href="#__codelineno-66-4"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Error Response</strong>
+1. <strong>400 Bad Request</strong> </br>
+Below is several error that caused this error code:</p>
+<table>
+<thead>
+<tr>
+<th>error_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>missing_parameter</td>
+<td>There are a missing parameters in the request provided</td>
+</tr>
+<tr>
+<td>header_value_mismatch</td>
+<td>using non-supported content-type header</td>
+</tr>
+<tr>
+<td>invalid_pin</td>
+<td>pin provided is incorrect</td>
+</tr>
+</tbody>
+</table>
 <h3 id="4-terminate-session">4. Terminate Session</h3>
 <p>Terminate current session</p>
 <h4 id="endpoint_11">Endpoint</h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>POST /v1/session/{session_id}/terminate
+<div class="language-text highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>POST /v1/session/{session_id}/terminate
 </span></code></pre></div>
 
 
