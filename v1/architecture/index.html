@@ -711,8 +711,8 @@
 <img alt="" src="../img/game_db_design.drawio.png" /></p>
 <p>There are three tables; <strong>games</strong>, <strong>storage_location</strong>, and <strong>user_games_collections</strong>. <em>games</em> is a table that store all supported games. This table hold information on the name of the games, the game icon, and the display picture (icon but big), and <strong>storage_id</strong> which point to <em>storage_location</em> table. <em>storage_location</em> table give information on to retrieve game from the storage location. This information include the protocol, ip/host, port (if needed), and location or endpoint.</p>
 <h3 id="session_1">Session</h3>
-<p><img alt="" src="../img/session_db.drawio.png" />
-In the session database, there are three tables, <strong>session</strong>, <strong>session_host</strong>, and <strong>session_metadata</strong>. Session is for storing the request status of the session. The status is of type ENUM called status. See the <a href="https://cloud-gaming-ta.github.io/api-docs/v1/endpoint/#2-get-session-status">session</a> details on endpoint for details regarding the possible value of the status.  The session id using <strong>UUIDv7</strong> stored in bytes format.  </p>
+<p><img alt="" src="../img/session_db.drawio.png" /> </p>
+<p>In the session database, there are three tables, <strong>session</strong>, <strong>session_host</strong>, and <strong>session_metadata</strong>. Session is for storing the request status of the session. The status is of type ENUM called status. See the <a href="https://cloud-gaming-ta.github.io/api-docs/v1/endpoint/#2-get-session-status">session</a> details on endpoint for details regarding the possible value of the status.  The session id using <strong>UUIDv7</strong> stored in bytes format.  </p>
 <p>In session_metadata table, there are data for storing extra information regarding the session. That include the creation time the username that create the session, and the game that are played</p>
 <p>session_host table store information regarding the VM that hosted the session. That include the address of the VM and the zero-tier networkid. </p>
 <h2 id="flowchart">Flowchart</h2>

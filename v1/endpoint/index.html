@@ -3599,7 +3599,7 @@ This is caused because of the game id not found on the user collections. </li>
 <li><strong>Body</strong>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="p">{</span>
 </span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="w">    </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;username&quot;</span>
-</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="w">    </span><span class="nt">&quot;game_metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="w">    </span><span class="nt">&quot;session_metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="w">        </span><span class="nt">&quot;game_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14121</span><span class="p">,</span>
 </span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="w">        </span><span class="nt">&quot;game_location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="w">            </span><span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nas&quot;</span><span class="p">,</span>
@@ -3628,13 +3628,10 @@ This is the step where the session service successfully create a VM creation req
 <p><strong>2.WaitingForConnection</strong>
 </br>
 This is the step where the VM requested has changed it's status to Running and waiting for the client to connect to the VM Virtual LAN. (via ZeroTier)</p>
-<p><strong>3.Pairing</strong>
-</br>
-This is the step where the client and VM successfully reside on the same LAN and waiting for the Sunshine and Moonlight to pair. </p>
-<p><strong>4. Running</strong>
+<p><strong>3. Running</strong>
 </br>
 This is the step where configuration has set up successfully and client can used the VM. </p>
-<p><strong>5. Failed</strong>
+<p><strong>4. Failed</strong>
 </br>
 Some step has failed and the VM creation is cancelled. </p>
 <h4 id="endpoint_8">Endpoint</h4>
@@ -3716,9 +3713,9 @@ This status returned when you are trying to get status of session_id that isn't 
 </thead>
 <tbody>
 <tr>
-<td>webhook_host</td>
+<td>webhook</td>
 <td><code>string</code></td>
-<td>host that will be called when data is ready</td>
+<td>server address that will be called when data is ready</td>
 </tr>
 <tr>
 <td>network_id</td>
@@ -3734,9 +3731,12 @@ This status returned when you are trying to get status of session_id that isn't 
 <ul>
 <li><strong>Body</strong>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="p">{</span>
-</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a><span class="w">    </span><span class="nt">&quot;webhook_host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the_ip:the_port&quot;</span><span class="p">,</span>
-</span><span id="__span-62-3"><a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a><span class="w">    </span><span class="nt">&quot;network_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;network_id&quot;</span><span class="p">,</span>
-</span><span id="__span-62-4"><a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a><span class="p">}</span>
+</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a><span class="w">    </span><span class="nt">&quot;webhook&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-62-3"><a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a><span class="w">        </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.1&quot;</span><span class="p">,</span>
+</span><span id="__span-62-4"><a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a><span class="w">        </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3000&quot;</span><span class="p">,</span>
+</span><span id="__span-62-5"><a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-62-6"><a id="__codelineno-62-6" name="__codelineno-62-6" href="#__codelineno-62-6"></a><span class="w">    </span><span class="nt">&quot;network_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;network_id&quot;</span><span class="p">,</span>
+</span><span id="__span-62-7"><a id="__codelineno-62-7" name="__codelineno-62-7" href="#__codelineno-62-7"></a><span class="p">}</span>
 </span></code></pre></div></li>
 </ul>
 <h4 id="response_16">Response</h4>
