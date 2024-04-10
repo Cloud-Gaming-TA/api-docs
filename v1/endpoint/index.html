@@ -3349,10 +3349,6 @@ This status is returned because of the token doesn't meet required conditions. H
 </table>
 <h4 id="pagination">Pagination</h4>
 <p>To get the first page, send request to this endpoint without specifying the offset or set offset to <code>0</code>.  Then to access the next page, use the offset value returned at the response. </p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>This endpoint only available for <strong>INTERNAL USE</strong>. The service will check the client certificate before proceeding the request. If the certificate  <strong>NOT ISSUED</strong> by our <strong>CERTIFICATE MANAGER</strong>, the request will be <strong>DECLINED</strong>.  </p>
-</div>
 <h4 id="request_13">Request</h4>
 <ul>
 <li><strong>Header</strong>*</li>
