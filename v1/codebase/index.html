@@ -1,0 +1,1245 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../architecture/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
+    
+    
+      
+        <title>Codebase - Cloud Gaming API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.10ba22f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cloud Gaming API Documentation" class="md-header__button md-logo" aria-label="Cloud Gaming API Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cloud Gaming API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Codebase
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cloud Gaming API Documentation" class="md-nav__button md-logo" aria-label="Cloud Gaming API Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Cloud Gaming API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../endpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Endpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../milestones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Milestones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Codebase
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Codebase
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Started
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-handler-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Handler Type
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Handler Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handlerlogic" class="md-nav__link">
+    <span class="md-ellipsis">
+      HandlerLogic
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-http-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom HTTP Error
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom HTTP Error">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#all-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      All Errors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#querynator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Querynator
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Querynator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normal-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Normal Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter Operation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routerx-and-routex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routerx and Routex
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#middleware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Middleware
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Started
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-handler-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Handler Type
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Handler Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handlerlogic" class="md-nav__link">
+    <span class="md-ellipsis">
+      HandlerLogic
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-http-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom HTTP Error
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom HTTP Error">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#all-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      All Errors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#querynator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Querynator
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Querynator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normal-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Normal Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter Operation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routerx-and-routex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routerx and Routex
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#middleware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Middleware
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Codebase</h1>
+
+<p>The API for this project is created mainly using Go. Some middlewares is created using Node.js with Express.js frameworks. </p>
+<h2 id="api">API</h2>
+<h3 id="get-started">Get Started</h3>
+<p>The API is built using Go. The API is divided into services. Each services consist of few files. First being main.go as the entrypoint of the service API. To differ the main and routes, each service has a package called <code>routes</code>. This package is used to declare the routes of the service. This route need to follow the endpoint format of:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/{version}/{service_name}/{endpoint}
+</span></code></pre></div>
+<p>So, it's mandatory to use a subrouter for ease of use. Below is a snippet on how to declare the subrouter:
+1. Create a subrouter with the version in main.go before setting the route</p>
+<div class="language-go highlight"><span class="filename">main.go</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Preview the library section for more info on </span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">// the wrapper routerX</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">router</span><span class="p">.</span><span class="nx">CreateRouterx</span><span class="p">()</span><span class="w"> </span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">// This will create a router with /v1/ prefix</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nx">routes</span><span class="p">.</span><span class="nx">SetServiceRoute</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">PathPrefix</span><span class="p">(</span><span class="s">&quot;/v1&quot;</span><span class="p">).</span><span class="nx">Subrouter</span><span class="p">())</span>
+</span></code></pre></div>
+<ol start="2">
+<li>Create a subrouter with the service name as the prefix from the router input
+<div class="language-go highlight"><span class="filename">service.go</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">SetServiceRoute</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">mux</span><span class="p">.</span><span class="nx">Router</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="c1">// This will create a router with prev_prefix/service/</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// prefix</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nx">subrouter</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">PathPrefix</span><span class="p">(</span><span class="s">&quot;/service&quot;</span><span class="p">).</span><span class="nx">Subrouter</span><span class="p">()</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="o">/*</span><span class="w"> </span><span class="nx">Set</span><span class="w"> </span><span class="nx">route</span><span class="w"> </span><span class="nx">handler</span><span class="w"> </span><span class="o">/*</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+</span></code></pre></div></li>
+</ol>
+<p>Besides routes and the entrypoint, each service has it's own config.go files that are placed on config package. This files declared the configuration of the server, such as host, database, and other service that this service depend on. <code>config.go</code> will parse configuration from json files called <code>app.config.json</code> that are placed within the same folder as the config.go files. </p>
+<p>Below is an example on how to create config.go files for api service</p>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">package</span><span class="w"> </span><span class="nx">config</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Config</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nx">ServiceName</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;service_name&quot;`</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="cm">/*Other Fields*/</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kd">func</span><span class="w"> </span><span class="nx">ParseConfig</span><span class="p">(</span><span class="nx">path</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="c1">// Read the other configuration from app.config.json</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="nx">exe</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">Executable</span><span class="p">()</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="nx">exePath</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">filepath</span><span class="p">.</span><span class="nx">Dir</span><span class="p">(</span><span class="nx">exe</span><span class="p">)</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="nx">configFile</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="nx">filepath</span><span class="p">.</span><span class="nx">Join</span><span class="p">(</span><span class="nx">exePath</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">path</span><span class="p">))</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">configFile</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">    </span><span class="nx">err</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">jsonutil</span><span class="p">.</span><span class="nx">DecodeJSON</span><span class="p">(</span><span class="nx">configFile</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">config</span><span class="p">)</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">    </span><span class="cm">/* Do other things */</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">config</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For ease of deployment, any secret key or other sensitive configuration, place them inside an environment variables. REFRAIN FROM PLACING THEM ON THE CONFIG FILE. </p>
+</div>
+<h3 id="custom-library">Custom Library</h3>
+<p>This codebase use a custom http library which are an extensions of Golang http library. </p>
+<h4 id="custom-handler-type">Custom Handler Type</h4>
+<p>In this library, there are few types that are declared, that is</p>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Handler</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nx">Metadata</span><span class="w"> </span><span class="o">*</span><span class="nx">Metadata</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nx">Handler</span><span class="w"> </span><span class="nx">HandlerLogic</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>This type is the <code>http.Handler</code> equivalent, and used to create a handler for a route. This struct implement the <code>http.Handler</code> interface. </p>
+<h5 id="metadata">Metadata</h5>
+<p>This handler two field, that is, metadata, which is a struct type</p>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Metadata</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nx">DB</span><span class="w"> </span><span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nx">Cache</span><span class="w"> </span><span class="o">*</span><span class="nx">cache</span><span class="p">.</span><span class="nx">RedisClient</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nx">Config</span><span class="w"> </span><span class="kd">interface</span><span class="p">{}</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>This struct hold data/struct that may be needed on the handler, such as database and cache, and configuration files. </p>
+<h5 id="handlerlogic">HandlerLogic</h5>
+<p>As for <code>HandlerLogic</code>, it's a function that act as the main logic of the handler. The function has a signature as follows:</p>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">HandlerLogic</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">metadata</span><span class="w"> </span><span class="o">*</span><span class="nx">Metadata</span><span class="p">,</span><span class="w"> </span><span class="nx">w</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span><span class="w"> </span><span class="nx">responseerror</span><span class="p">.</span><span class="nx">HTTPCustomError</span>
+</span></code></pre></div>
+<h4 id="custom-http-error">Custom HTTP Error</h4>
+<p>For convenience, each handler must return a custom error type called <code>HTTPCustomError</code>.</p>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">ResponseError</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="nx">Code</span><span class="w">    </span><span class="kt">int</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nx">Message</span><span class="w"> </span><span class="kt">string</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nx">Name</span><span class="w">    </span><span class="kt">string</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The field is straightforward. Code is the return code of the error, such as <strong>404</strong> for Not Found, <strong>400</strong> for Bad Request, etc. Name is the name of the error, which must be an ENUM. When creating a new name of the error, you must add them into the list of all error type in the correct error group (Bad Request, Not Found, etc.). </p>
+<p>For message, it's a brief description of the errors that were thrown. Same as errorType, you must declare the message on the correct group as a template. This makes the message dynamic. You can add <code>{{.dynamicFields}}</code> into your string.  <code>responseerror</code> package has a function named <code>ParseMessage</code> that can replace the placeholder with the value on a map with the same key. </p>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="kt">string</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nx">template</span><span class="w"> </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="s">&quot;Hello, {{.name}}. {{.MOTD}}&quot;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">)</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">responseerror</span><span class="p">.</span><span class="nx">ParseMessage</span><span class="p">(</span><span class="nx">tmp</span><span class="w"> </span><span class="nx">errorMessageTemplate</span><span class="p">,</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;John Smith&quot;</span><span class="p">,</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="s">&quot;MOTD&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Good Morning!&quot;</span><span class="p">,</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">})</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span><span class="w"> </span><span class="c1">// &quot;Hello, John Smith. Good Morning!&quot;</span>
+</span></code></pre></div>
+<h5 id="all-errors">All Errors</h5>
+<ol>
+<li>
+<p>Bad Request
+<div class="language-go highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="nx">MissingParameter</span><span class="w">     </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;missing_parameter&quot;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nx">HeaderValueMistmatch</span><span class="w"> </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;header_value_mismatch&quot;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="nx">UsernameExists</span><span class="w">       </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;username_exists&quot;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nx">EmailExists</span><span class="w">          </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;email_exists&quot;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nx">UsernameInvalid</span><span class="w">      </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;username_invalid&quot;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="nx">PasswordWeak</span><span class="w">         </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;password_weak&quot;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="nx">EmailInvalid</span><span class="w">         </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;invalid_email&quot;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="nx">PayloadInvalid</span><span class="w">       </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;invalid_payload&quot;</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="nx">OTPInvalid</span><span class="w">           </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;invalid_otp&quot;</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="nx">OTPExpired</span><span class="w">           </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;otp_expired&quot;</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="nx">CallsStatusInvalid</span><span class="w">   </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;invalid_status_value&quot;</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="nx">SteamNotLinked</span><span class="w">       </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;steam_not_linked&quot;</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="nx">SteamAlreadyLinked</span><span class="w">   </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;steam_has_been_linked&quot;</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="nx">MalformedSessionID</span><span class="w">   </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;malformed_uuidv7_id&quot;</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="nx">InvalidPIN</span><span class="w">           </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;invalid_pin&quot;</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="p">)</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="nx">MissingParameterMessage</span><span class="w">     </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;required field {{.field}} is missing&quot;</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">    </span><span class="nx">HeaderValueMistmatchMessage</span><span class="w"> </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;mismatch value in header {{.name}}&quot;</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">    </span><span class="nx">UsernameExistMessage</span><span class="w">        </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;email already taken&quot;</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">    </span><span class="nx">EmailsExistMessage</span><span class="w">          </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;username already taken&quot;</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">    </span><span class="nx">UsernameInvalidMessage</span><span class="w">      </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;username is invalid&quot;</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">    </span><span class="nx">PasswordWeakMessage</span><span class="w">         </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;password is weak&quot;</span>
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">    </span><span class="nx">EmailInvalidMessage</span><span class="w">         </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;email is invalid&quot;</span>
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">    </span><span class="nx">PayloadInvalidMessage</span><span class="w">       </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;payload is invalid&quot;</span>
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">    </span><span class="nx">OTPInvalidMessage</span><span class="w">           </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;otp is invalid&quot;</span>
+</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">    </span><span class="nx">OTPExpiredMessage</span><span class="w">           </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;otp is expired. please resend a new otp to your email&quot;</span>
+</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="w">    </span><span class="nx">StatusInvalidMessage</span><span class="w">        </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;trying to update status to {{.reqStatus}} when user status is {{.status}}&quot;</span>
+</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="w">    </span><span class="nx">SteamAlreadyLinkedMessage</span><span class="w">   </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;this account has been linked to steam&quot;</span>
+</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="w">    </span><span class="nx">SteamNotLinkedMessage</span><span class="w">       </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;account has not been linked to steam yet&quot;</span>
+</span><span id="__span-9-33"><a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="w">    </span><span class="nx">MalformedSessionIDMessage</span><span class="w">   </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;{{.id}} cannot be parsed as a valid uuidv7 id &quot;</span>
+</span><span id="__span-9-34"><a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a><span class="w">    </span><span class="nx">InvalidPINMessage</span><span class="w">           </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;{{.pin}} is invalid&quot;</span>
+</span><span id="__span-9-35"><a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a><span class="p">)</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Unauthenticated
+<div class="language-go highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="nx">UserMarkedInActive</span><span class="w"> </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;user_marked_inactive&quot;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="nx">InvalidCredentials</span><span class="w"> </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;invalid_credentials&quot;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">)</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="nx">UserMarkedInActiveMessage</span><span class="w"> </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;your account hasn&#39;t been verified and currently marked inactive&quot;</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="nx">InvalidCredentialsMessage</span><span class="w"> </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;email or password is wrong&quot;</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="p">)</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Unauthorized
+<div class="language-go highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="nx">InvalidAuthHeader</span><span class="w"> </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;invalid_auth_header&quot;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="nx">EmptyAuthHeader</span><span class="w">   </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;empty_auth_header&quot;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="nx">InvalidToken</span><span class="w">      </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;invalid_token&quot;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nx">TokenExpired</span><span class="w">      </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;token_expired&quot;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="nx">RefreshDenied</span><span class="w">     </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;refresh_denied&quot;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="nx">ClaimsMismatch</span><span class="w">    </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;claims_mismatch&quot;</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="nx">AccessDenied</span><span class="w">      </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;access_denied&quot;</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="p">)</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="nx">InvalidAuthHeaderMessage</span><span class="w"> </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Not accepted authorization of type {{.authType}}&quot;</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="nx">EmptyAuthHeaderMessage</span><span class="w">   </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Required authorization header in request header&quot;</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="nx">InvalidTokenMessage</span><span class="w">      </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Invalid Token.{{.description}}&quot;</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="nx">TokenExpiredMessage</span><span class="w">      </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;your token has expired&quot;</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">    </span><span class="nx">RefreshDeniedMessage</span><span class="w">     </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;cannot get new access token when the previous one still active&quot;</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">    </span><span class="nx">ClaimsMismatchMessage</span><span class="w">    </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;refresh claims and username claims don&#39;t share the same credentials&quot;</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="nx">MTLSFailureMessage</span><span class="w">       </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;cannot establish trust. certificate is either invalid, revoked, or empty&quot;</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">    </span><span class="nx">AccessDeniedMesage</span><span class="w">       </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;you don&#39;t have permission to access this route&quot;</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="p">)</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Internal Service Error
+<div class="language-go highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="nx">InternalServiceErr</span><span class="w"> </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;internal_service_error&quot;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">)</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="nx">InternalServiceErrorTemplate</span><span class="w"> </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;sorry, we cannot proceed with your request at the moment. please try again later!. &quot;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="p">)</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="kd">type</span><span class="w"> </span><span class="nx">InternalServiceError</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="o">*</span><span class="nx">ResponseError</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="nx">Description</span><span class="w"> </span><span class="kt">string</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="p">}</span>
+</span></code></pre></div></p>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Internal Service Error is a unique one. It add a new field to the struct. That is the description. When a Internal Service Error is thrown, the service will print the <code>error description</code>. </p>
+</div>
+<ol start="5">
+<li>Too Many Request
+<div class="language-go highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="nx">ResendIntervalNotReachedErr</span><span class="w"> </span><span class="nx">errorType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;otp_resend_interval_not_reached&quot;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">)</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="nx">ResendIntervalNotReachedMessage</span><span class="w"> </span><span class="nx">errorMessageTemplate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Mail has already been sent to your registered email&quot;</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">)</span>
+</span></code></pre></div></li>
+</ol>
+<h4 id="querynator">Querynator</h4>
+<p>This API don't use ORM library to make the query. <code>Querynator</code> is the library that were used to create query to the database. <code>Querynator</code> is built on PostgreSQL on mind, so the functionality may break when using other driver. </p>
+<p>Querynator has three mode, normal, batch insert, and join. </p>
+<p>As for now, querynator support this operation:
+1. Insert (Normal Mode)
+2. Batch Insert (Filter Batch Insert Mode)
+3. Filter Batch Insert (Filter Batch Insert Mode)
+4. Update (Normal Mode)
+5. Delete (Normal Mode)
+6. Find (Normal Mode)
+7. FindOne (Normal Mode)
+8. IsExist (Normal Mode)
+9. Find (Join Mode)
+10. Transaction (Begin, Commit, and Rollback)</p>
+<p><code>Querynator</code> use <code>sqlx</code>  for some advanced functionality such as parse multiple SQL rows into a struct. This is used heavily on Find. 
+Other than that, it used plain SQL interface from the standard library. </p>
+<h5 id="normal-mode">Normal Mode</h5>
+<ol>
+<li>Insert
+<div class="language-go highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">Insert</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">QueryOperation</span><span class="p">,</span><span class="w"> </span><span class="nx">tableName</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">returnField</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span>
+</span></code></pre></div></li>
+</ol>
+<p>This function will insert data specified in v to the database with table equal to <code>tableName</code>. v must be of type <code>struct</code> and has <code>db</code> tag on the fields to specify the column name of the fields. If <code>returnField</code> is not an empty string, <code>interface{}</code> will has the return value from column specified in <code>returnField</code></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Insert will ignore field that aren't initialized (equal to the zero value for basic type and length is zero for a slice)</p>
+</div>
+<ol start="2">
+<li>Delete
+<div class="language-go highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">Delete</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">QueryOperation</span><span class="p">,</span><span class="w"> </span><span class="nx">tableName</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+</span></code></pre></div></li>
+</ol>
+<p>This function will delete v from the database from table equal to <code>tableName</code>. </p>
+<ol start="3">
+<li>Update
+<div class="language-go highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">Update</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">conditionNames</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">conditionValues</span><span class="w"> </span><span class="p">[]</span><span class="kt">any</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">QueryOperation</span><span class="p">,</span><span class="w"> </span><span class="nx">tableName</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+</span></code></pre></div></li>
+</ol>
+<p>This function will update data in the database with non empty value from v. Data that fit the condition specified will be updated. </p>
+<ol start="4">
+<li>IsExists
+<div class="language-go highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">IsExists</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span><span class="p">,</span><span class="w"> </span><span class="nx">tableName</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span></code></pre></div></li>
+</ol>
+<p>Check if v exist in the database</p>
+<ol start="5">
+<li>FindOne
+<div class="language-go highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">FindOne</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">dest</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span><span class="p">,</span><span class="w"> </span><span class="nx">tableName</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">returnFieldsName</span><span class="w"> </span><span class="o">...</span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+</span></code></pre></div></li>
+</ol>
+<p>Find one row that has the same value as v and load the result to dest. </p>
+<ol start="6">
+<li>Find 
+<div class="language-go highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">Find</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">dest</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">limit</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span><span class="p">,</span><span class="w"> </span><span class="nx">tableName</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">returnFieldsName</span><span class="w"> </span><span class="o">...</span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+</span></code></pre></div>
+Find all occurences in the database that has the same value as v and load them into dest</li>
+</ol>
+<h5 id="join">Join</h5>
+<p>To change mode to Join Mode, call the initiate join operation methods of querynator. </p>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">PrepareJoinOperation</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">JoinQueryExecutor</span>
+</span></code></pre></div>
+<p>This will create a <code>JoinQueryExecutor</code> instance. </p>
+<ol>
+<li>Add Join Table
+This will attach a table into the join operation
+<div class="language-go highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="o">*</span><span class="nx">JoinQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">AddJoinTable</span><span class="p">(</span><span class="nx">joinTableName</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">joinKeyName</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">receiverTableName</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">receiverForeignKeyName</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span></code></pre></div></li>
+</ol>
+<p><code>joinTableName</code> is the new table that are going to be added to the operation. <code>receiverTableName</code> is the name of the table that are matched against the new table, and must have already been declared/added to the operation (either via <code>AddJoinTable</code> or the name that are placed on the Find method)
+2. UseExplicitCast
+<div class="language-go highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="o">*</span><span class="nx">JoinQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">UseExplicitCast</span><span class="p">()</span>
+</span></code></pre></div></p>
+<p>This will explicitly cast into the type of the conditions that are specified in Find method. 
+3. SetLimit
+<div class="language-go highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="o">*</span><span class="nx">JoinQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">SetLimit</span><span class="p">(</span><span class="nx">limit</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p>This will limit the amout of result the find method will return. 
+4. OrderBy
+<div class="language-go highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kd">const</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="nx">ASCENDING</span><span class="w">  </span><span class="nx">OrderType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;ASC&quot;</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span><span class="nx">DESCENDING</span><span class="w"> </span><span class="nx">OrderType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;DESC&quot;</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="p">)</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="o">*</span><span class="nx">JoinQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">OrderBy</span><span class="p">(</span><span class="nx">orderByField</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">orderType</span><span class="w"> </span><span class="nx">OrderType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span></code></pre></div></p>
+<p>This will order the result based on the field, either ASCENDING or DESCENDING. </p>
+<ol start="5">
+<li>Find
+<div class="language-go highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="o">*</span><span class="nx">JoinQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">Find</span><span class="p">(</span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span><span class="p">,</span><span class="w"> </span><span class="nx">condition</span><span class="w"> </span><span class="p">[]</span><span class="nx">QueryCondition</span><span class="p">,</span><span class="w"> </span><span class="nx">dest</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">tableName</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">joinClause</span><span class="w"> </span><span class="nx">JoinClause</span><span class="p">,</span><span class="w"> </span><span class="nx">returnFields</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+</span></code></pre></div></li>
+</ol>
+<p>Executor the join operation and return value based on <code>returnFields</code> that matched the conditions specified. If the <code>returnFields</code> is happened to have a null value, the query will change the value into a zero value of the appropriate type. </p>
+<h5 id="filter-operation">Filter Operation</h5>
+<p>To create filter operation, one must first call <code>PrepareFilterOperation</code> methods of <code>querynator</code>. </p>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">PrepareFilterOperation</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">FilteredQueryExecutor</span><span class="w"> </span><span class="p">{</span>
+</span></code></pre></div>
+<p>This will return a <code>FilteredQueryExecutor</code>. </p>
+<p>Filter query is an operation where the operation is conducted by looking at other table values. If the data fit the criteria, the operations is executed, else it was ignored. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Filter query currently only support batch insert. </p>
+</div>
+<ol>
+<li>
+<p>AddTableSource
+<div class="language-go highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">f</span><span class="w"> </span><span class="o">*</span><span class="nx">FilteredQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">AddTableSource</span><span class="p">(</span><span class="nx">tableSource</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">columnSource</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">columnReceiver</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span></code></pre></div>
+This will add table that will be used for comparison for the data </p>
+</li>
+<li>
+<p>UseTransaction
+<div class="language-go highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">f</span><span class="w"> </span><span class="o">*</span><span class="nx">FilteredQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">UseTransaction</span><span class="p">(</span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span>
+</span></code></pre></div></p>
+</li>
+</ol>
+<p>This will begin a transcation. The transaction instance will be placed on field called Tx</p>
+<ol start="3">
+<li>BatchInsert
+<div class="language-go highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">f</span><span class="w"> </span><span class="o">*</span><span class="nx">FilteredQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">BatchInsert</span><span class="p">(</span><span class="nx">data</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span><span class="p">,</span><span class="w"> </span><span class="nx">tableName</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+</span></code></pre></div></li>
+</ol>
+<p>Insert data in batch. 
+4. Rollback
+<div class="language-go highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">f</span><span class="w"> </span><span class="o">*</span><span class="nx">FilteredQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">Rollback</span><span class="p">()</span><span class="w"> </span><span class="kt">error</span>
+</span></code></pre></div></p>
+<p>Rollback the operation
+6. Commit
+<div class="language-go highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">f</span><span class="w"> </span><span class="o">*</span><span class="nx">FilteredQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">Commit</span><span class="p">()</span><span class="w"> </span><span class="kt">error</span>
+</span></code></pre></div></p>
+<p>Commit the operation</p>
+<h4 id="routerx-and-routex">Routerx and Routex</h4>
+<p>This is an extensions to <code>mux.Router</code></p>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Routerx</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">    </span><span class="nx">Router</span><span class="w">   </span><span class="o">*</span><span class="nx">mux</span><span class="p">.</span><span class="nx">Router</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">    </span><span class="nx">Metadata</span><span class="w"> </span><span class="o">*</span><span class="nx">httpx</span><span class="p">.</span><span class="nx">Metadata</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>To create a new <code>routerx</code>, call the function <code>CreateRouterx</code></p>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">CreateRouterx</span><span class="p">(</span><span class="nx">metadata</span><span class="w"> </span><span class="o">*</span><span class="nx">httpx</span><span class="p">.</span><span class="nx">Metadata</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">Routerx</span>
+</span></code></pre></div>
+<p><code>Routerx</code> only implements a handful of <code>mux.Router</code> methods, that includes, <code>Handle</code>, <code>PathPrefix</code>, and <code>Use</code>. Other functionality can be called via <code>Router</code> field. </p>
+<p><code>Routerx</code> also not implement <code>http.Handler</code> interface, so to attach router to http server, use <code>Router</code> field. </p>
+<p>Equivalent to <code>mux.Router</code>. Handle methods attach handler into a route instance called <code>routex</code>, that are a wrapper to <code>mux.Route</code>. </p>
+<p><code>routex</code>, add one new methods, that is <code>UseMiddleware</code>. This will attach a middleware chain to the handler of the route. </p>
+<h4 id="middleware">Middleware</h4>
+<p>Middleware is a <code>http.Handler</code> that can called other <code>http.Handler</code> specified in <code>next</code>. In this codebase, middleware is declared as a type</p>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Middleware</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">next</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">Handler</span><span class="p">)</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">Handler</span>
+</span></code></pre></div>
+<p>This signature follows the <code>mux.Middlewarefnc</code> type. </p>
+<p>A few useful middleware has been implemented, that is 
+1. Payload Check Middleware
+2. Auth Middleware
+3. Certificate Check Middleware
+4. Route Getter Middleware</p>
+<p>Middleware 1-3 need to be initialized. Middleware 4 does not. </p>
+<p>Here is a snippet on auth middleware factory
+<div class="language-go highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">AuthMiddleware</span><span class="p">(</span><span class="nx">authAPI</span><span class="w"> </span><span class="nx">ServiceAPI</span><span class="p">,</span><span class="w"> </span><span class="nx">tlsConfig</span><span class="w"> </span><span class="o">*</span><span class="nx">tls</span><span class="p">.</span><span class="nx">Config</span><span class="p">,</span><span class="w"> </span><span class="nx">metadata</span><span class="w"> </span><span class="o">*</span><span class="nx">httpx</span><span class="p">.</span><span class="nx">Metadata</span><span class="p">)</span><span class="w"> </span><span class="nx">Middleware</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">next</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">Handler</span><span class="p">)</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">Handler</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">        </span><span class="nx">fn</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">metadata</span><span class="w"> </span><span class="o">*</span><span class="nx">httpx</span><span class="p">.</span><span class="nx">Metadata</span><span class="p">,</span><span class="w"> </span><span class="nx">w</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span><span class="w"> </span><span class="nx">responseerror</span><span class="p">.</span><span class="nx">HTTPCustomError</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="kt">string</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">            </span><span class="nx">endpoint</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Context</span><span class="p">().</span><span class="nx">Value</span><span class="p">(</span><span class="nx">EndpointKey</span><span class="p">).(</span><span class="kt">string</span><span class="p">)</span>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">            </span><span class="nx">auth</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="s">&quot;Authorization&quot;</span><span class="p">)</span>
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nx">auth</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">responseerror</span><span class="p">.</span><span class="nx">CreateBadRequestError</span><span class="p">(</span>
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a><span class="w">                    </span><span class="nx">responseerror</span><span class="p">.</span><span class="nx">EmptyAuthHeader</span><span class="p">,</span>
+</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="w">                    </span><span class="nx">responseerror</span><span class="p">.</span><span class="nx">EmptyAuthHeaderMessage</span><span class="p">,</span>
+</span><span id="__span-35-14"><a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a><span class="w">                    </span><span class="kc">nil</span><span class="p">,</span>
+</span><span id="__span-35-15"><a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a><span class="w">                </span><span class="p">)</span>
+</span><span id="__span-35-16"><a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-35-17"><a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a>
+</span><span id="__span-35-18"><a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nx">authType</span><span class="p">,</span><span class="w"> </span><span class="nx">authValue</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nx">Cut</span><span class="p">(</span><span class="nx">auth</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">);</span><span class="w"> </span><span class="nx">authType</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">&quot;Bearer&quot;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-19"><a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">responseerror</span><span class="p">.</span><span class="nx">CreateUnauthorizedError</span><span class="p">(</span>
+</span><span id="__span-35-20"><a id="__codelineno-35-20" name="__codelineno-35-20" href="#__codelineno-35-20"></a><span class="w">                    </span><span class="nx">responseerror</span><span class="p">.</span><span class="nx">InvalidAuthHeader</span><span class="p">,</span>
+</span><span id="__span-35-21"><a id="__codelineno-35-21" name="__codelineno-35-21" href="#__codelineno-35-21"></a><span class="w">                    </span><span class="nx">responseerror</span><span class="p">.</span><span class="nx">InvalidAuthHeaderMessage</span><span class="p">,</span>
+</span><span id="__span-35-22"><a id="__codelineno-35-22" name="__codelineno-35-22" href="#__codelineno-35-22"></a><span class="w">                    </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+</span><span id="__span-35-23"><a id="__codelineno-35-23" name="__codelineno-35-23" href="#__codelineno-35-23"></a><span class="w">                        </span><span class="s">&quot;authType&quot;</span><span class="p">:</span><span class="w"> </span><span class="nx">authType</span><span class="p">,</span>
+</span><span id="__span-35-24"><a id="__codelineno-35-24" name="__codelineno-35-24" href="#__codelineno-35-24"></a><span class="w">                    </span><span class="p">},</span>
+</span><span id="__span-35-25"><a id="__codelineno-35-25" name="__codelineno-35-25" href="#__codelineno-35-25"></a><span class="w">                </span><span class="p">)</span>
+</span><span id="__span-35-26"><a id="__codelineno-35-26" name="__codelineno-35-26" href="#__codelineno-35-26"></a>
+</span><span id="__span-35-27"><a id="__codelineno-35-27" name="__codelineno-35-27" href="#__codelineno-35-27"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-28"><a id="__codelineno-35-28" name="__codelineno-35-28" href="#__codelineno-35-28"></a><span class="w">                </span><span class="nx">token</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">authValue</span>
+</span><span id="__span-35-29"><a id="__codelineno-35-29" name="__codelineno-35-29" href="#__codelineno-35-29"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-35-30"><a id="__codelineno-35-30" name="__codelineno-35-30" href="#__codelineno-35-30"></a>
+</span><span id="__span-35-31"><a id="__codelineno-35-31" name="__codelineno-35-31" href="#__codelineno-35-31"></a><span class="w">            </span><span class="nx">req</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">httpx</span><span class="p">.</span><span class="nx">HTTPRequest</span><span class="p">{}</span>
+</span><span id="__span-35-32"><a id="__codelineno-35-32" name="__codelineno-35-32" href="#__codelineno-35-32"></a><span class="w">            </span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">CreateRequest</span><span class="p">(</span>
+</span><span id="__span-35-33"><a id="__codelineno-35-33" name="__codelineno-35-33" href="#__codelineno-35-33"></a><span class="w">                </span><span class="nx">authAPI</span><span class="p">.</span><span class="nx">Scheme</span><span class="p">,</span>
+</span><span id="__span-35-34"><a id="__codelineno-35-34" name="__codelineno-35-34" href="#__codelineno-35-34"></a><span class="w">                </span><span class="nx">authAPI</span><span class="p">.</span><span class="nx">Host</span><span class="p">,</span>
+</span><span id="__span-35-35"><a id="__codelineno-35-35" name="__codelineno-35-35" href="#__codelineno-35-35"></a><span class="w">                </span><span class="nx">authAPI</span><span class="p">.</span><span class="nx">Port</span><span class="p">,</span>
+</span><span id="__span-35-36"><a id="__codelineno-35-36" name="__codelineno-35-36" href="#__codelineno-35-36"></a><span class="w">                </span><span class="nx">AUTH_VERIFY_TOKEN_ENDPOINT</span><span class="p">,</span>
+</span><span id="__span-35-37"><a id="__codelineno-35-37" name="__codelineno-35-37" href="#__codelineno-35-37"></a><span class="w">                </span><span class="nx">http</span><span class="p">.</span><span class="nx">MethodPost</span><span class="p">,</span>
+</span><span id="__span-35-38"><a id="__codelineno-35-38" name="__codelineno-35-38" href="#__codelineno-35-38"></a><span class="w">                </span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span>
+</span><span id="__span-35-39"><a id="__codelineno-35-39" name="__codelineno-35-39" href="#__codelineno-35-39"></a><span class="w">                </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-40"><a id="__codelineno-35-40" name="__codelineno-35-40" href="#__codelineno-35-40"></a><span class="w">                    </span><span class="nx">Token</span><span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;token&quot;`</span>
+</span><span id="__span-35-41"><a id="__codelineno-35-41" name="__codelineno-35-41" href="#__codelineno-35-41"></a><span class="w">                    </span><span class="nx">Endpoint</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;endpoint&quot;`</span>
+</span><span id="__span-35-42"><a id="__codelineno-35-42" name="__codelineno-35-42" href="#__codelineno-35-42"></a><span class="w">                </span><span class="p">}{</span>
+</span><span id="__span-35-43"><a id="__codelineno-35-43" name="__codelineno-35-43" href="#__codelineno-35-43"></a><span class="w">                    </span><span class="nx">Token</span><span class="p">:</span><span class="w">    </span><span class="nx">token</span><span class="p">,</span>
+</span><span id="__span-35-44"><a id="__codelineno-35-44" name="__codelineno-35-44" href="#__codelineno-35-44"></a><span class="w">                    </span><span class="nx">Endpoint</span><span class="p">:</span><span class="w"> </span><span class="nx">endpoint</span><span class="p">,</span>
+</span><span id="__span-35-45"><a id="__codelineno-35-45" name="__codelineno-35-45" href="#__codelineno-35-45"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-35-46"><a id="__codelineno-35-46" name="__codelineno-35-46" href="#__codelineno-35-46"></a><span class="w">                </span><span class="nx">tlsConfig</span><span class="p">,</span>
+</span><span id="__span-35-47"><a id="__codelineno-35-47" name="__codelineno-35-47" href="#__codelineno-35-47"></a><span class="w">            </span><span class="p">)</span>
+</span><span id="__span-35-48"><a id="__codelineno-35-48" name="__codelineno-35-48" href="#__codelineno-35-48"></a>
+</span><span id="__span-35-49"><a id="__codelineno-35-49" name="__codelineno-35-49" href="#__codelineno-35-49"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-50"><a id="__codelineno-35-50" name="__codelineno-35-50" href="#__codelineno-35-50"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+</span><span id="__span-35-51"><a id="__codelineno-35-51" name="__codelineno-35-51" href="#__codelineno-35-51"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-35-52"><a id="__codelineno-35-52" name="__codelineno-35-52" href="#__codelineno-35-52"></a>
+</span><span id="__span-35-53"><a id="__codelineno-35-53" name="__codelineno-35-53" href="#__codelineno-35-53"></a><span class="w">            </span><span class="nx">claims</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">jwtutil</span><span class="p">.</span><span class="nx">Claims</span><span class="p">{}</span>
+</span><span id="__span-35-54"><a id="__codelineno-35-54" name="__codelineno-35-54" href="#__codelineno-35-54"></a><span class="w">            </span><span class="nx">err</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">Send</span><span class="p">(</span><span class="nx">claims</span><span class="p">)</span>
+</span><span id="__span-35-55"><a id="__codelineno-35-55" name="__codelineno-35-55" href="#__codelineno-35-55"></a>
+</span><span id="__span-35-56"><a id="__codelineno-35-56" name="__codelineno-35-56" href="#__codelineno-35-56"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-57"><a id="__codelineno-35-57" name="__codelineno-35-57" href="#__codelineno-35-57"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+</span><span id="__span-35-58"><a id="__codelineno-35-58" name="__codelineno-35-58" href="#__codelineno-35-58"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-35-59"><a id="__codelineno-35-59" name="__codelineno-35-59" href="#__codelineno-35-59"></a>
+</span><span id="__span-35-60"><a id="__codelineno-35-60" name="__codelineno-35-60" href="#__codelineno-35-60"></a><span class="w">            </span><span class="c1">// send token and claims into the next middleware chain</span>
+</span><span id="__span-35-61"><a id="__codelineno-35-61" name="__codelineno-35-61" href="#__codelineno-35-61"></a><span class="w">            </span><span class="nx">ctx</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">WithValue</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">Context</span><span class="p">(),</span><span class="w"> </span><span class="nx">ClaimsKey</span><span class="p">,</span><span class="w"> </span><span class="nx">claims</span><span class="p">)</span>
+</span><span id="__span-35-62"><a id="__codelineno-35-62" name="__codelineno-35-62" href="#__codelineno-35-62"></a><span class="w">            </span><span class="nx">ctx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">WithValue</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">TokenKey</span><span class="p">,</span><span class="w"> </span><span class="nx">token</span><span class="p">)</span>
+</span><span id="__span-35-63"><a id="__codelineno-35-63" name="__codelineno-35-63" href="#__codelineno-35-63"></a>
+</span><span id="__span-35-64"><a id="__codelineno-35-64" name="__codelineno-35-64" href="#__codelineno-35-64"></a><span class="w">            </span><span class="nx">next</span><span class="p">.</span><span class="nx">ServeHTTP</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">WithContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">))</span>
+</span><span id="__span-35-65"><a id="__codelineno-35-65" name="__codelineno-35-65" href="#__codelineno-35-65"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
+</span><span id="__span-35-66"><a id="__codelineno-35-66" name="__codelineno-35-66" href="#__codelineno-35-66"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-35-67"><a id="__codelineno-35-67" name="__codelineno-35-67" href="#__codelineno-35-67"></a>
+</span><span id="__span-35-68"><a id="__codelineno-35-68" name="__codelineno-35-68" href="#__codelineno-35-68"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">httpx</span><span class="p">.</span><span class="nx">Handler</span><span class="p">{</span>
+</span><span id="__span-35-69"><a id="__codelineno-35-69" name="__codelineno-35-69" href="#__codelineno-35-69"></a><span class="w">            </span><span class="nx">Metadata</span><span class="p">:</span><span class="w"> </span><span class="nx">metadata</span><span class="p">,</span>
+</span><span id="__span-35-70"><a id="__codelineno-35-70" name="__codelineno-35-70" href="#__codelineno-35-70"></a><span class="w">            </span><span class="nx">Handler</span><span class="p">:</span><span class="w">  </span><span class="nx">fn</span><span class="p">,</span>
+</span><span id="__span-35-71"><a id="__codelineno-35-71" name="__codelineno-35-71" href="#__codelineno-35-71"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-35-72"><a id="__codelineno-35-72" name="__codelineno-35-72" href="#__codelineno-35-72"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-35-73"><a id="__codelineno-35-73" name="__codelineno-35-73" href="#__codelineno-35-73"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p>Other middleware follows a similar pattern. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Auth middleware required you to use route getter middleware before this middleware. Omitting that middleware will create a panic. Beware!</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>data is being passed through middleware chain via context. Use the ContextKey to retrieve any relevant information. </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>
