@@ -968,34 +968,36 @@ Other than that, it used plain SQL interface from the standard library. </p>
 <p></br>
 1. Insert 
 <div class="language-go highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">Insert</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">QueryOperation</span><span class="p">,</span><span class="w"> </span><span class="nx">tableName</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">returnField</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span>
-</span></code></pre></div></p>
-<p>This function will insert data specified in v to the database with table equal to <code>tableName</code>. v must be of type <code>struct</code> and has <code>db</code> tag on the fields to specify the column name of the fields. If <code>returnField</code> is not an empty string, <code>interface{}</code> will has the return value from column specified in <code>returnField</code></p>
+</span></code></pre></div>
+This function will insert data specified in v to the database with table equal to <code>tableName</code>. v must be of type <code>struct</code> and has <code>db</code> tag on the fields to specify the column name of the fields. If <code>returnField</code> is not an empty string, <code>interface{}</code> will has the return value from column specified in <code>returnField</code></p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Insert will ignore field that aren't initialized (equal to the zero value for basic type and length is zero for a slice)</p>
 </div>
 <ol start="2">
-<li>Delete 
+<li>
+<p>Delete 
 <div class="language-go highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">Delete</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">QueryOperation</span><span class="p">,</span><span class="w"> </span><span class="nx">tableName</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
-</span></code></pre></div></li>
-</ol>
-<p>This function will delete v from the database from table equal to <code>tableName</code>. </br></p>
-<ol start="3">
-<li>Update 
+</span></code></pre></div>
+This function will delete v from the database from table equal to <code>tableName</code>. </br></p>
+</li>
+<li>
+<p>Update 
 <div class="language-go highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">Update</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">conditionNames</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">conditionValues</span><span class="w"> </span><span class="p">[]</span><span class="kt">any</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">QueryOperation</span><span class="p">,</span><span class="w"> </span><span class="nx">tableName</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
-</span></code></pre></div></li>
-</ol>
-<p>This function will update data in the database with non empty value from v. Data that fit the condition specified will be updated. </br></p>
-<ol start="4">
-<li>IsExists 
+</span></code></pre></div>
+This function will update data in the database with non empty value from v. Data that fit the condition specified will be updated. </br></p>
+</li>
+<li>
+<p>IsExists 
 <div class="language-go highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">IsExists</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span><span class="p">,</span><span class="w"> </span><span class="nx">tableName</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span></code></pre></div></li>
-</ol>
-<p>Check if v exist in the database </br></p>
-<ol start="5">
-<li>FindOne 
+</span></code></pre></div>
+Check if v exist in the database </br></p>
+</li>
+<li>
+<p>FindOne 
 <div class="language-go highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">FindOne</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">dest</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span><span class="p">,</span><span class="w"> </span><span class="nx">tableName</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">returnFieldsName</span><span class="w"> </span><span class="o">...</span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
-</span></code></pre></div></li>
+</span></code></pre></div></p>
+</li>
 </ol>
 <p>Find one row that has the same value as v and load the result to dest. </br></p>
 <ol start="6">
@@ -1006,24 +1008,22 @@ Find all occurences in the database that has the same value as v and load them i
 </ol>
 <h5 id="join">Join</h5>
 <p>To change mode to Join Mode, call the initiate join operation methods of querynator. </p>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">PrepareJoinOperation</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">JoinQueryExecutor</span>
+<p><div class="language-go highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">PrepareJoinOperation</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">JoinQueryExecutor</span>
 </span></code></pre></div>
-<p>This will create a <code>JoinQueryExecutor</code> instance. </p>
-<ol>
-<li>Add Join Table
+This will create a <code>JoinQueryExecutor</code> instance. </br>
+1. Add Join Table
 This will attach a table into the join operation
 <div class="language-go highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="o">*</span><span class="nx">JoinQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">AddJoinTable</span><span class="p">(</span><span class="nx">joinTableName</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">joinKeyName</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">receiverTableName</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">receiverForeignKeyName</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span></code></pre></div></li>
-</ol>
-<p><code>joinTableName</code> is the new table that are going to be added to the operation. <code>receiverTableName</code> is the name of the table that are matched against the new table, and must have already been declared/added to the operation (either via <code>AddJoinTable</code> or the name that are placed on the Find method)
+</span></code></pre></div></p>
+<p><code>joinTableName</code> is the new table that are going to be added to the operation. <code>receiverTableName</code> is the name of the table that are matched against the new table, and must have already been declared/added to the operation (either via <code>AddJoinTable</code> or the name that are placed on the Find method) </br>
 2. UseExplicitCast
 <div class="language-go highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="o">*</span><span class="nx">JoinQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">UseExplicitCast</span><span class="p">()</span>
-</span></code></pre></div></p>
-<p>This will explicitly cast into the type of the conditions that are specified in Find method. 
+</span></code></pre></div>
+This will explicitly cast into the type of the conditions that are specified in Find method. </br>
 3. SetLimit
 <div class="language-go highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="o">*</span><span class="nx">JoinQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">SetLimit</span><span class="p">(</span><span class="nx">limit</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
-</span></code></pre></div></p>
-<p>This will limit the amout of result the find method will return. 
+</span></code></pre></div>
+This will limit the amout of result the find method will return. </br>
 4. OrderBy
 <div class="language-go highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kd">const</span><span class="w"> </span><span class="p">(</span>
 </span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="nx">ASCENDING</span><span class="w">  </span><span class="nx">OrderType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;ASC&quot;</span>
@@ -1031,14 +1031,12 @@ This will attach a table into the join operation
 </span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="p">)</span>
 </span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>
 </span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="o">*</span><span class="nx">JoinQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">OrderBy</span><span class="p">(</span><span class="nx">orderByField</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">orderType</span><span class="w"> </span><span class="nx">OrderType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span></code></pre></div></p>
-<p>This will order the result based on the field, either ASCENDING or DESCENDING. </p>
-<ol start="5">
-<li>Find
+</span></code></pre></div>
+This will order the result based on the field, either ASCENDING or DESCENDING. </br>
+5. Find
 <div class="language-go highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="o">*</span><span class="nx">JoinQueryExecutor</span><span class="p">)</span><span class="w"> </span><span class="nx">Find</span><span class="p">(</span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span><span class="p">,</span><span class="w"> </span><span class="nx">condition</span><span class="w"> </span><span class="p">[]</span><span class="nx">QueryCondition</span><span class="p">,</span><span class="w"> </span><span class="nx">dest</span><span class="w"> </span><span class="kd">interface</span><span class="p">{},</span><span class="w"> </span><span class="nx">tableName</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">joinClause</span><span class="w"> </span><span class="nx">JoinClause</span><span class="p">,</span><span class="w"> </span><span class="nx">returnFields</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
-</span></code></pre></div></li>
-</ol>
-<p>Executor the join operation and return value based on <code>returnFields</code> that matched the conditions specified. If the <code>returnFields</code> is happened to have a null value, the query will change the value into a zero value of the appropriate type. </p>
+</span></code></pre></div>
+Executor the join operation and return value based on <code>returnFields</code> that matched the conditions specified. If the <code>returnFields</code> is happened to have a null value, the query will change the value into a zero value of the appropriate type. </p>
 <h5 id="filter-operation">Filter Operation</h5>
 <p>To create filter operation, one must first call <code>PrepareFilterOperation</code> methods of <code>querynator</code>. </p>
 <div class="language-go highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Querynator</span><span class="p">)</span><span class="w"> </span><span class="nx">PrepareFilterOperation</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">FilteredQueryExecutor</span><span class="w"> </span><span class="p">{</span>
